@@ -2,23 +2,21 @@ const errors = require("./generic").errors;
 
 let isProd = true;
 
-const modExports = {};
-
 module.exports = (setIsProd) => {
     isProd = setIsProd;
-    return modExports;
+    return module.exports;
 };
 
 // Forward export the error objects
-module.exports.errors = modExports.errors = errors;
+module.exports.errors = errors;
 
 // 404
-module.exports.notFound = modExports.notFound = ((req, res, _) => {
+module.exports.notFound = ((req, res, _) => {
     throw errors.notFound.fromReq(req);
 });
 
 // Catches errors
-module.exports.handler = modExports.handler = ((err, req, res, next) => {
+module.exports.handler = ((err, req, res, next) => {
     const statusCode = res.statusCode !== 200 ? res.statusCode : err.code || 500;
     res.status(statusCode);
 

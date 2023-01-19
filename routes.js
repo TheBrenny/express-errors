@@ -17,7 +17,7 @@ module.exports.notFound = ((req, res, _) => {
 
 // Catches errors
 module.exports.handler = ((err, req, res, next) => {
-    const statusCode = res.statusCode !== 200 ? res.statusCode : err.code || 500;
+    const statusCode = res.statusCode !== 200 ? res.statusCode : (err.status ?? (isNaN(err.code) ? 500 : err.code));
     res.status(statusCode);
 
     let e = {

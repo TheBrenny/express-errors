@@ -23,6 +23,7 @@ const notFound = require("./404");
 const conflict = require("./409");
 const internalServerError = require("./500");
 const notImplemented = require("./501");
+const serviceUnavailable = require("./503");
 
 module.exports.errors = {
     400: badRequest,
@@ -31,10 +32,12 @@ module.exports.errors = {
     409: conflict,
     500: internalServerError,
     501: notImplemented,
+    503: serviceUnavailable,
     badRequest,
     forbidden,
     notFound,
     conflict,
     internalServerError,
     notImplemented,
+    serviceUnavailable,
 };

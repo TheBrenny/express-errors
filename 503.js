@@ -2,7 +2,8 @@ const ErrorGeneric = require("./generic");
 
 const reasons = {
     MAINTENANCE: "down for maintenance",
-    OVERLOADED: "overloaded"
+    OVERLOADED: "overloaded",
+    NOT_LOADED: "not yet loaded",
 }
 
 class Error503 extends ErrorGeneric {

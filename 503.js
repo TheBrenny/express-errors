@@ -13,4 +13,4 @@ class Error503 extends ErrorGeneric {
 }
 
 module.exports = Error503;
-module.exports.reason = reason;
+module.exports.reasons = reasons;
